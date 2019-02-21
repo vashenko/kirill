@@ -1,16 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <PageLayout>
+    <template slot="navbar">
+      <Navbar />
+    </template>
+    <template slot="content">
+      <router-view />
+    </template>
+  </PageLayout>
 </template>
+
+<script>
+import Navbar from "@/components/Navbar.vue";
+import PageLayout from "@/layout/PageLayout.vue";
+
+export default {
+  components: {
+    Navbar,
+    PageLayout
+  }
+};
+</script>
+
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

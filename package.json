@@ -9,9 +9,15 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "file-system": "^2.2.2",
     "vue": "^2.6.6",
+    "vue-property-decorator": "^7.3.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuetify": "^1.5.2",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.1"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
