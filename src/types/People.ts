@@ -12,6 +12,7 @@ export interface Person {
 
 export interface PeopleStore {
   people: Person[]
+  person: Person
 }
 
 export interface Post {

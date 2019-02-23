@@ -1,8 +1,6 @@
-const express = require('express')
+const express = require('express');
 const app = express();
-const fs = require('fs');
-
-let people = null;
+const people = require('./routes/people');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -10,14 +8,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-fs.readFile('../json-data/people.json', (err, data) => {
-  if (err) console.log(err);
-  people = JSON.parse(data);
-});
-
-app.get('/people', function (req, res) {
-  res.send(people);
-});
+app.use('/people', people);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');

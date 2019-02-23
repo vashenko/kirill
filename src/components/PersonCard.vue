@@ -8,6 +8,10 @@ export default class PersonCard extends Vue {
   person: Person;
 
   show: boolean = false;
+
+  redirectOnUserProfile(id: string): void {
+    this.$router.push({ path: '/people/' + id})
+  }
 }
 </script>
 
@@ -17,6 +21,7 @@ export default class PersonCard extends Vue {
     sm12
     lg4
     md4
+    @click="redirectOnUserProfile(person.id)"
   >
     <v-card>
       <v-img
@@ -42,22 +47,6 @@ export default class PersonCard extends Vue {
         <p class="subheading">{{person.proffesion}}</p>
       </v-card-text>
 
-      <v-card-actions>
-        Person description
-        <v-spacer></v-spacer>
-        <v-btn
-          icon
-          @click="show = !show"
-        >
-          <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-        </v-btn>
-      </v-card-actions>
-
-      <v-slide-y-transition>
-        <v-card-text v-show="show">
-          {{person.about}}
-        </v-card-text>
-      </v-slide-y-transition>
     </v-card>
   </v-flex>
 </template>
