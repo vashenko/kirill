@@ -14,7 +14,7 @@ export default class PersonCard extends Vue {
 <template>
   <v-flex
     xs12
-    sm12
+    sm6
     lg4
     md4
   >
