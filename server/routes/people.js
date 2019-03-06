@@ -1,11 +1,11 @@
 const express = require("express")
 const router = express.Router()
-const sql = require("../services/sql-queries")
+const sql = require("../services/sql-queries/users-queries")
 
 const port = process.env.PORT || 8000
 
 router.get("/", (req, res) => {
-  sql.queries
+  sql.usersQueries
     .getAllUsers()
     .then(users => {
       res.send(users)
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", function(req, res) {
   const { id } = req.params
-  sql.queries
+  sql.usersQueries
     .getUserById(id)
     .then(user => {
       res.send(user[0])

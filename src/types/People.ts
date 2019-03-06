@@ -1,3 +1,4 @@
+import { Post } from "./Post"
 export interface Person {
   name: string
   surname: string
@@ -7,14 +8,9 @@ export interface Person {
   about: string
   rating: number
   isBanned: boolean
-  posts: string
+  posts: Post[]
 }
 
 export interface PeopleStore {
   people: Person[]
-}
-
-export interface Post {
-  title: string
-  content: string
 }

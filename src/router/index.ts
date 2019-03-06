@@ -4,6 +4,7 @@ import store from "@/store/index"
 
 import PersonProfile from "@/components/PersonProfile.vue"
 import PeopleList from "@/views/PeopleList.vue"
+import PostsList from "@/views/PostsList.vue"
 
 Vue.use(Router)
 
@@ -17,6 +18,15 @@ export default new Router({
       component: PeopleList,
       beforeEnter(to, from, next) {
         store.dispatch("people/getPeople")
+        next()
+      }
+    },
+    {
+      path: "/posts",
+      name: "posts",
+      component: PostsList,
+      beforeEnter(to, from, next) {
+        store.dispatch("posts/getPosts")
         next()
       }
     },
