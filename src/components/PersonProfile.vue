@@ -57,6 +57,7 @@ export default class PersonProfile extends Vue {
           ></v-img>
         </div>
         <div class="profile--card__content">
+
           <div class="profile--card__credentionals">
             <h3 class="headline mb-0"> {{user.name}} {{user.surname}}</h3>
             <p class="profile--card__credentionals--proffesion">{{user.proffesion}}</p>
@@ -83,6 +84,15 @@ export default class PersonProfile extends Vue {
           </v-card-text>
         </v-slide-y-transition>
       </v-card>
+    </v-flex>
+
+    <v-flex
+      xs12
+      lg4
+      md6
+      column
+    >
+
     </v-flex>
   </v-layout>
 </template>
