@@ -13,26 +13,10 @@ const getPeople = ({ commit }) => {
     .catch(error => {
       throw error
     })
-};
-
-const getPerson = ({ commit }, id: string) => {
-  return peopleService
-    .getPerson(id)
-    .then(response => {
-        if (!response) false;
-
-        commit("setPerson", {
-            person: response.data
-        })
-    })
-    .catch(error => {
-        throw error
-    })
-};
+}
 
 const actions = {
-  getPeople,
-  getPerson
-};
+  getPeople
+}
 
 export default actions

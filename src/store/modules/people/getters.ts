@@ -1,14 +1,9 @@
-import { Person } from '@/types/People';
-
+import { Person } from "@/types/People"
 
 const getters = {
   people: (state): Person[] => {
-    return state.people;
-  },
-
-  person: (state): Person => {
-    return state.person;
+    return state.people
   }
-};
+}
 
 export default getters

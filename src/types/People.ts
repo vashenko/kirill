@@ -7,12 +7,11 @@ export interface Person {
   about: string
   rating: number
   isBanned: boolean
-  posts: Post[]
+  posts: string
 }
 
 export interface PeopleStore {
   people: Person[]
-  person: Person
 }
 
 export interface Post {

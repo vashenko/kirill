@@ -1,36 +1,35 @@
-const express = require('express');
-const router = express.Router();
-const fs = require('fs');
+const express = require("express")
+const router = express.Router()
+const sql = require("../services/sql-queries")
 
-let people = null;
+const port = process.env.PORT || 8000
 
-const port = process.env.PORT || 3000;
+router.get("/", (req, res) => {
+  sql.queries
+    .getAllUsers()
+    .then(users => {
+      res.send(users)
+    })
+    .catch(err => {
+      return res.status(404).send("Oops something goes wrong")
+    })
+})
 
-fs.readFile('./json-data/people.json', (err, data) => {
-  if (err) console.log(err);
-  people = JSON.parse(data);
-});
+router.get("/:id", function(req, res) {
+  const { id } = req.params
+  sql.queries
+    .getUserById(id)
+    .then(user => {
+      res.send(user[0])
+    })
+    .catch(err => res.status(404).send("No user was found by matched id"))
+})
 
-router.get('/', (req, res) => {
-  res.send(people)
-});
+router.put("/rating/:id", (req, res) => {
+  // const user = findUserByParam(req.params.name)
+  // if (!user) return res.status(404).send("No user was found by matched id")
+  // user.rating++
+  // res.send(user)
+})
 
-router.get('/:id', function (req, res) {
-  const user = findUserByParam(req.params.id);
-  return user ? res.send(user) : res.status(404).send('No user was found by matched id');
-});
-
-router.put('/rating/:id', (req, res) => {
-  const user = findUserByParam(req.params.name);
-  if (!user) return res.status(404).send('No user was found by matched id');
-
-  user.rating++;
-  res.send(user);
-});
-
-function findUserByParam(param) {
-  const user = people.find(person => person.id === param);
-  return user ? user : false;
-}
-
-module.exports = router;
+module.exports = router

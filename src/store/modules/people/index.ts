@@ -5,8 +5,7 @@ import mutations from './mutations';
 import { PeopleStore } from '@/types/People';
 
 const state: PeopleStore = {
-  people: null,
-  person: null
+  people: null
 }
 
 export default {

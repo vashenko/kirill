@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "mysql": "github:mysqljs/mysql",
     "vue": "^2.6.6",
     "vue-property-decorator": "^7.3.0",
     "vue-router": "^3.0.1",
@@ -28,7 +29,7 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "ts-jest": "^23.0.0",
-    "typescript": "^3.0.0",
+    "typescript": "^3.3.3333",
     "vue-template-compiler": "^2.5.21"
   }
 }
